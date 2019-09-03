@@ -118,6 +118,7 @@ void readFiles(std::vector<std::string>& filenames, size_t start, size_t end, Ra
         //ofile_float.write((char*)(floatBig + i*55*45), sizeof(float)*55*45);
 #pragma omp critical
 {
+	// needs a lock
         ofile_float.seekp(4*i*45*55UL);
         ofile_float.write((char*)temp, sizeof(float)*55*45);
 }
